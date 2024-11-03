@@ -59,7 +59,7 @@ public class ValidateItemCreation : MonoBehaviour
             displayNameOutline.enabled = true;
             result = false;
         }
-        if (IDInput.text.Length <= 0 && int.Parse(IDInput.text) > 500)
+        if (IDInput.text.Length <= 0)
         {
             IDInputOutline.enabled = true;
             result = false;
