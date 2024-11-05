@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ValidateItemCreation : MonoBehaviour
 {
-    [SerializeField] private ItemInProgress itemInProgress;
+    [SerializeField] private FunctionalityForms forms;
 
     public GameObject dragMenu;
     public GameObject newItemMenu;
@@ -16,11 +16,15 @@ public class ValidateItemCreation : MonoBehaviour
     public TMP_InputField IDInput;
     public TMP_InputField slotSizeWidthInput;
     public TMP_InputField slotSizeHeightInput;
+    public TMP_InputField sellInput;
+    public TMP_InputField purchaseInput;
 
     [SerializeField] private Outline displayNameOutline;
     [SerializeField] private Outline IDInputOutline;
     [SerializeField] private Outline slotSizeWidthOutline;
     [SerializeField] private Outline slotSizeHeightOutline;
+    [SerializeField] private Outline sellOutline;
+    [SerializeField] private Outline purchaseOutline;
 
     public void OnEnable()
     {
@@ -35,14 +39,15 @@ public class ValidateItemCreation : MonoBehaviour
         headerTitle.text = "["+IDInput.text+"] "+displayNameInput.text;
 
         requiredResolutionText.text = 
-            "Must be .png and " + int.Parse(slotSizeWidthInput.text) * 512
-            + "px X " + int.Parse(slotSizeHeightInput.text) * 512 + "px";
+            "Must be .png and " + int.Parse(slotSizeWidthInput.text) * 256
+            + "px X " + int.Parse(slotSizeHeightInput.text) * 256 + "px";
 
         dragMenu.SetActive(true);
         newItemMenu.SetActive(false);
 
-        itemInProgress.SetData(displayNameInput.text, uint.Parse(IDInput.text)
-            , new Vector2Int(int.Parse(slotSizeWidthInput.text), int.Parse(slotSizeHeightInput.text)));
+        forms.SetBasicItem(new ItemRecord(displayNameInput.text, uint.Parse(IDInput.text),
+            new Vector2Int(int.Parse(slotSizeWidthInput.text), int.Parse(slotSizeHeightInput.text)),
+            null, float.Parse(sellInput.text), float.Parse(purchaseInput.text)));
     }
 
     private bool ErrorCheck()
@@ -53,6 +58,8 @@ public class ValidateItemCreation : MonoBehaviour
         IDInputOutline.enabled = false;
         slotSizeWidthOutline.enabled = false;
         slotSizeHeightOutline.enabled = false;
+        sellOutline.enabled = false;
+        purchaseOutline.enabled = false;
 
         if (displayNameInput.text.Length <= 0)
         {
@@ -72,6 +79,16 @@ public class ValidateItemCreation : MonoBehaviour
         if (slotSizeHeightInput.text.Length != 1)
         {
             slotSizeHeightOutline.enabled = true;
+            result = false;
+        }
+        if (sellInput.text.Length <= 0)
+        {
+            sellOutline.enabled = true;
+            result = false;
+        }
+        if (purchaseInput.text.Length <= 0)
+        {
+            purchaseOutline.enabled = true;
             result = false;
         }
 

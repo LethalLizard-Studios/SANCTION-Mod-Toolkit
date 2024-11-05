@@ -1,29 +1,86 @@
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ItemInProgress : MonoBehaviour
 {
-    public ItemManager itemManager;
+    public string currentModpack = "Test";
 
-    private string _name;
-    private uint _id;
-    private Vector2Int _dimensions;
-    private Texture2D _texture = null;
+    [SerializeField] private GameObject Homepage;
 
-    public void SetTexture(Texture2D texture)
+    [SerializeField] private GameObject TutorialPrompts;
+    [SerializeField] private GameObject ItemPrefab;
+    [SerializeField] private Transform ItemContainer;
+
+    private List<ItemRecord> _currentModsItems = new List<ItemRecord>();
+    private ItemRecord _item;
+
+    private string _texture = null;
+
+    private void OnEnable()
+    {
+        string _filePath = ModPath.HoldingDirectory + currentModpack;
+
+        if (!Directory.Exists(_filePath))
+        {
+            Debug.Log("Mod does not exist!");
+            return;
+        }
+
+        string[] jsonFiles = Directory.GetFiles(_filePath, "*.json");
+
+        for (int i = 0; i < jsonFiles.Length; i++)
+        {
+            _currentModsItems = ItemSerializer.Load(jsonFiles[i]);
+        }
+
+        if (_currentModsItems != null && _currentModsItems.Count > 0)
+        {
+            TutorialPrompts.SetActive(false);
+
+            for (int i = 0; i < _currentModsItems.Count; i++)
+            {
+                Instantiate(ItemPrefab, ItemContainer).GetComponent<ItemContentView>()
+                    .Build(_currentModsItems[i], this);
+            }
+        }
+    }
+
+    public void RemoveItemFromMod(ItemRecord item)
+    {
+        if (_currentModsItems.Contains(item))
+            _currentModsItems.Remove(item);
+
+        SaveMod();
+    }
+
+    public void SetTexture(string texture)
     {
         _texture = texture;
     }
 
-    public void SetData(string name, uint id, Vector2Int dimensions)
+    public void SetItem(ItemRecord item)
     {
-        _name = name;
-        _id = id;
-        _dimensions = dimensions;
+        _item = item;
     }
 
     public void BuildItem()
     {
-        itemManager.items.Add(new ItemRecord(_name, _id, _dimensions, _texture));
-        itemManager.SaveMod();
+        _item.texturePath = _texture;
+        _item.modPackName = currentModpack;
+
+        if (_currentModsItems == null)
+            _currentModsItems = new List<ItemRecord>();
+
+        _currentModsItems.Add(_item);
+
+        SaveMod();
+
+        Homepage.SetActive(true);
+    }
+
+    public void SaveMod()
+    {
+        ItemSerializer.Save(_currentModsItems, ModPath.HoldingDirectory + currentModpack + "/items.json");
     }
 }

@@ -1,0 +1,8 @@
+{
+    "Items": [
+        {
+            "ItemJson": "{\"name\":\"w4egrd\",\"id\":999,\"dimensions\":{\"x\":3,\"y\":2},\"texturePath\":\"\",\"sellValue\":1.0,\"purchaseValue\":3.0,\"texture\":{\"instanceID\":0}}",
+            "ItemFunctionality": "ItemRecord, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+        }
+    ]
+}

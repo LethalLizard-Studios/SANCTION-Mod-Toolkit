@@ -8,10 +8,23 @@ public class ItemContentView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI idText;
     [SerializeField] private RawImage iconImage;
 
-    public void Build(string displayName, uint id, Texture2D icon)
+    private ItemRecord _itemRecord;
+    private ItemInProgress _itemInProgress;
+
+    public void Build(ItemRecord item, ItemInProgress itemInProgress)
     {
-        displayNameText.text = displayName;
-        idText.text = "ID: "+id;
-        iconImage.texture = icon;
+        _itemRecord = item;
+
+        displayNameText.text = item.name;
+        idText.text = "ID: "+ item.id;
+        iconImage.texture = item.FetchTexture();
+
+        _itemInProgress = itemInProgress;
+    }
+
+    public void Delete()
+    {
+        _itemInProgress.RemoveItemFromMod(_itemRecord);
+        Destroy(gameObject);
     }
 }

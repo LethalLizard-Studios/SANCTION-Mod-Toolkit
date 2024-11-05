@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using B83.Win32;
 using UnityEngine.UI;
+using System.IO;
 
 
 public class FileDragAndDrop : MonoBehaviour
@@ -75,8 +76,7 @@ public class FileDragAndDrop : MonoBehaviour
         texture = tex;
 
         previewImage.texture = texture;
-
-        itemInProgress.SetTexture(texture);
+        itemInProgress.SetTexture(Path.GetFileName(aInfo.file));
 
         previewMenu.SetActive(true);
         dragMenu.SetActive(false);
