@@ -19,6 +19,11 @@ public class ValidateItemCreation : MonoBehaviour
     public TMP_InputField sellInput;
     public TMP_InputField purchaseInput;
 
+    public TMP_InputField merchantIndex;
+    public TMP_InputField merchantRepRequired;
+    public TMP_InputField lootIndex;
+    public TMP_InputField lootChancePercentage;
+
     [SerializeField] private Outline displayNameOutline;
     [SerializeField] private Outline IDInputOutline;
     [SerializeField] private Outline slotSizeWidthOutline;
@@ -45,9 +50,17 @@ public class ValidateItemCreation : MonoBehaviour
         dragMenu.SetActive(true);
         newItemMenu.SetActive(false);
 
-        forms.SetBasicItem(new ItemRecord(displayNameInput.text, uint.Parse(IDInput.text),
+        ItemRecord itemRecord = new ItemRecord(displayNameInput.text, uint.Parse(IDInput.text),
             new Vector2Int(int.Parse(slotSizeWidthInput.text), int.Parse(slotSizeHeightInput.text)),
-            null, int.Parse(sellInput.text), int.Parse(purchaseInput.text)));
+            null, int.Parse(sellInput.text), int.Parse(purchaseInput.text));
+
+        if (merchantIndex.text.Length > 0 && merchantRepRequired.text.Length > 0)
+            itemRecord.merchantID = new Vector2Int(int.Parse(merchantIndex.text), int.Parse(merchantRepRequired.text));
+
+        if (lootIndex.text.Length > 0 && lootChancePercentage.text.Length > 0)
+            itemRecord.lootID = new Vector2Int(int.Parse(lootIndex.text), int.Parse(lootChancePercentage.text));
+
+        forms.SetBasicItem(itemRecord);
     }
 
     private bool ErrorCheck()

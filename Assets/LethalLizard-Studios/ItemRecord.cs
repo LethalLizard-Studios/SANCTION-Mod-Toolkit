@@ -16,7 +16,7 @@ public class ItemRecord
     public uint savedValue = 0;
 
     public Vector2Int merchantID = new Vector2Int(-1, -1); // x = merchant, y = required reputation
-    public uint[] containedInLootID;
+    public Vector2Int lootID = new Vector2Int(-1, -1); // x = loot ID, y = loot chance (%)
 
     public string modPackName;
     public Sprite icon;
