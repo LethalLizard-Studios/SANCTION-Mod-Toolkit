@@ -71,12 +71,14 @@ public class ValidateItemCreation : MonoBehaviour
             IDInputOutline.enabled = true;
             result = false;
         }
-        if (slotSizeWidthInput.text.Length != 1)
+        if (slotSizeWidthInput.text.Length != 1 || int.Parse(slotSizeWidthInput.text) > 4
+             || int.Parse(slotSizeWidthInput.text) < 1)
         {
             slotSizeWidthOutline.enabled = true;
             result = false;
         }
-        if (slotSizeHeightInput.text.Length != 1)
+        if (slotSizeHeightInput.text.Length != 1 || int.Parse(slotSizeHeightInput.text) > 4
+            || int.Parse(slotSizeHeightInput.text) < 1)
         {
             slotSizeHeightOutline.enabled = true;
             result = false;
