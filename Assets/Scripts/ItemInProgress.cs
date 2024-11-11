@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class ItemInProgress : MonoBehaviour
 {
     public string currentModpack = "Test";
+
+    [SerializeField] private GameObject RenamePrompt;
 
     [SerializeField] private GameObject Homepage;
 
@@ -56,6 +59,31 @@ public class ItemInProgress : MonoBehaviour
                 Instantiate(ItemPrefab, ItemContainer).GetComponent<ItemContentView>()
                     .Build(_currentModsItems[i], this);
             }
+        }
+    }
+
+    public void OpenRenamePrompt()
+    {
+        RenamePrompt.SetActive(true);
+    }
+
+    public void SubmitRename(TMP_InputField nameInput)
+    {
+        RenamePrompt.SetActive(false);
+        RenameModpack(nameInput.text);
+    }
+
+    private void RenameModpack(string newName)
+    {
+        if (newName.Length <= 1)
+            return;
+
+        Directory.Move(ModPath.HoldingDirectory + currentModpack, ModPath.HoldingDirectory + newName);
+        currentModpack = newName;
+
+        for (int i = 0; i < _currentModsItems.Count; i++)
+        {
+            _currentModsItems[i].modPackName = newName;
         }
     }
 

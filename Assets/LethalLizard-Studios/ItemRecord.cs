@@ -48,6 +48,9 @@ public class ItemRecord
             tempTexture.LoadImage(fileData);
         }
 
-        return Sprite.Create(tempTexture, new Rect(0.0f, 0.0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        if (tempTexture != null)
+            return Sprite.Create(tempTexture, new Rect(0.0f, 0.0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        else
+            return null;
     }
 }
