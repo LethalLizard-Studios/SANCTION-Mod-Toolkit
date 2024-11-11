@@ -1,0 +1,48 @@
+using System.IO;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Workspace : MonoBehaviour
+{
+    [SerializeField] private ItemInProgress progress;
+    [SerializeField] private GameObject modControllers;
+    [SerializeField] private GameObject workspaceButtonPrefab;
+    [SerializeField] private Transform buttonContent;
+
+    void Start()
+    {
+        LoadWorkspaces();
+    }
+
+    private void LoadWorkspaces()
+    {
+        string[] workspaceFolders = Directory.GetDirectories(ModPath.HoldingDirectory);
+
+        for (int i = 0; i < workspaceFolders.Length; i++)
+        {
+            DirectoryInfo dir = new DirectoryInfo(workspaceFolders[i]);
+            string workspaceName = dir.Name;
+            Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
+            button.GetChild(0).GetComponent<TextMeshProUGUI>().text = workspaceName;
+            button.GetComponent<WorkspaceButton>().Setup(this, workspaceName);
+        }
+    }
+
+    public void StartWorkspace(string modpackName)
+    {
+        progress.currentModpack = modpackName;
+        modControllers.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void CreateNewWorkspace()
+    {
+        string newModName = "New Mod";
+
+        Directory.CreateDirectory(ModPath.HoldingDirectory+"/"+ newModName);
+        Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
+        button.GetChild(0).GetComponent<TextMeshProUGUI>().text = newModName;
+        button.GetComponent<WorkspaceButton>().Setup(this, newModName);
+    }
+}

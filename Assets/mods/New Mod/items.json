@@ -1,0 +1,8 @@
+{
+    "Items": [
+        {
+            "ItemJson": "{\"name\":\"New Mod Item\",\"ID\":999,\"dimensions\":{\"x\":2,\"y\":2},\"texturePath\":\"\",\"sellValue\":1,\"purchaseValue\":2,\"rarity\":-1,\"savedValue\":0,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"New Mod\",\"icon\":{\"instanceID\":0},\"functionality\":0}",
+            "ItemFunctionality": "ItemRecord, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+        }
+    ]
+}
