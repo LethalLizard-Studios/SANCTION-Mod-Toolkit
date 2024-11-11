@@ -24,11 +24,14 @@ public class FoodItem : ItemRecord
     public FoodGroup FoodGroup;
 
     public FoodItem(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue, uint calories, uint healAmount, FoodGroup foodGroup) 
+        int sellValue, int purchaseValue, uint calories, uint healAmount, FoodGroup foodGroup)
         : base(name, id, dimensions, texturePath, sellValue, purchaseValue)
     {
         this.Calories = calories;
         this.HealAmount = healAmount;
         this.FoodGroup = foodGroup;
+
+        base.savedValue = calories;
+        base.functionality = Functionality.Food;
     }
 }

@@ -12,10 +12,13 @@ public class DrinkItem : ItemRecord
     public uint AlcoholProof;
 
     public DrinkItem(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue, uint quenchAmount, uint alcoholProof) 
+        int sellValue, int purchaseValue, uint quenchAmount, uint alcoholProof)
         : base(name, id, dimensions, texturePath, sellValue, purchaseValue)
     {
         this.QuenchAmount = quenchAmount;
         this.AlcoholProof = alcoholProof;
+
+        base.savedValue = quenchAmount;
+        base.functionality = Functionality.Drink;
     }
 }

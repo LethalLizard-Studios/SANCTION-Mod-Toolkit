@@ -1,53 +1,74 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+/* All rights reserved to Leland T Carter of LethalLizard Studios.
+ * @status COMPLETE
+ * @date 2024-07-11
+*/
 
 public enum Functionality
 {
     Basic,
+    Ammo,
+    Health,
     Food,
     Drink,
-    Health,
+    Weapon,
+    Attachment,
+    SprayPaint,
     AirFilter,
-    Anomalous,
     Breedable,
-    WeaponCamo
+    Anomalous
 }
 
-[CreateAssetMenu(fileName = "It_", menuName = "Item/ScriptableItem", order = 1)]
+public enum Rarity
+{
+    None,
+    Common,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary,
+    Anomalous,
+    Unique
+}
+
+public enum SoundGroup
+{
+    Generic,
+    Bottle,
+    Bag,
+    Cloth,
+    LooseMetal,
+    Can,
+    Bug
+}
+
+[CreateAssetMenu(fileName = "It_", menuName = "Items/ItemObject", order = 1)]
 public class ScriptableItem : ScriptableObject
 {
     public string displayName;
-    public uint id;
-    public Vector2Int dimensions;
-    public Texture2D texture;
-    public float sellValue;
-    public float purchaseValue;
+    public int ID;
 
-    public Functionality functionality;
+    public Vector2 merchantID = new Vector2(-1, -1);
 
-    //FOOD
-    public uint calories;
-    public FoodGroup foodGroup;
+    [Space(8)]
+    public Functionality functionality = Functionality.Basic;
 
-    //DRINK
-    public uint quenchAmount;
-    public uint alcoholProof;
+    public ScriptableNutrition nutrition;
+    public Rarity rarity = Rarity.None;
 
-    //HEALTH
-    public uint healAmount;
+    public int useAmount = 0;
+    public int sellValue = 1;
+    public int costValue = 0;
+    public GameObject[] contextOptions = new GameObject[0];
 
-    //AIR FILTER
-    public uint duration;
+    [Header("SFX")]
+    public SoundGroup soundGroup;
 
-    //ANOMALOUS
-    public uint spiritualPower;
+    [Header("UI")]
+    public Vector2 dimensions = new Vector2();
+    public Sprite icon;
 
-    //BREEDABLE
-    public List<Vector2Int> combinations;
-    public List<uint> itemDrops;
-    public Rarity rarity;
-
-    //WEAPON CAMO
-    public uint weaponID;
-    public Texture2D mainTexture;
+    public UnityEvent onEquip;
 }

@@ -6,7 +6,7 @@ public class ItemContentView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private TextMeshProUGUI idText;
-    [SerializeField] private RawImage iconImage;
+    [SerializeField] private Image iconImage;
 
     private ItemRecord _itemRecord;
     private ItemInProgress _itemInProgress;
@@ -16,8 +16,8 @@ public class ItemContentView : MonoBehaviour
         _itemRecord = item;
 
         displayNameText.text = item.name;
-        idText.text = "ID: "+ item.id;
-        iconImage.texture = item.FetchTexture();
+        idText.text = "ID: "+ item.ID;
+        iconImage.sprite = item.FetchTexture();
 
         _itemInProgress = itemInProgress;
     }

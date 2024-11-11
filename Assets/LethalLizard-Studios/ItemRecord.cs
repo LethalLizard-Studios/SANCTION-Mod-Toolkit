@@ -5,36 +5,49 @@ using UnityEngine;
 public class ItemRecord
 {
     public string name;
-    public uint id;
+    public uint ID;
     public Vector2Int dimensions;
     public string texturePath;
-    public float sellValue;
-    public float purchaseValue;
+    public int sellValue;
+    public int purchaseValue;
+
+    public int rarity = -1;
+
+    public uint savedValue = 0;
+
+    public Vector2Int merchantID = new Vector2Int(-1, -1); // x = merchant, y = required reputation
+    public uint[] containedInLootID;
 
     public string modPackName;
-    public Texture2D texture;
+    public Sprite icon;
+
+    public Functionality functionality;
 
     public ItemRecord(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue)
+        int sellValue, int purchaseValue)
     {
         this.name = name;
-        this.id = id;
+        this.ID = id;
         this.dimensions = dimensions;
         this.texturePath = texturePath;
         this.sellValue = sellValue;
         this.purchaseValue = purchaseValue;
+
+        functionality = Functionality.Basic;
     }
 
-    public Texture2D FetchTexture()
+    public Sprite FetchTexture()
     {
-        if (texture == null && !string.IsNullOrEmpty(texturePath))
-        {
-            byte[] fileData = File.ReadAllBytes(Application.dataPath+"/mods/"+modPackName+"/"+texturePath);
+        Texture2D tempTexture = null;
 
-            texture = new Texture2D(256 * dimensions.x, 256 * dimensions.y);
-            texture.LoadImage(fileData);
+        if (icon == null && !string.IsNullOrEmpty(texturePath))
+        {
+            byte[] fileData = File.ReadAllBytes(Application.dataPath + "/mods/" + modPackName + "/" + texturePath);
+
+            tempTexture = new Texture2D(256 * dimensions.x, 256 * dimensions.y);
+            tempTexture.LoadImage(fileData);
         }
 
-        return texture;
+        return Sprite.Create(tempTexture, new Rect(0.0f, 0.0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
     }
 }

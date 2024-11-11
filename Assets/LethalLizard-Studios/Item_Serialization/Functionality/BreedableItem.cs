@@ -6,17 +6,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Rarity
-{
-    Common,
-    Uncommon,
-    Rare,
-    Epic,
-    Legendary,
-    Anomalous,
-    Unique
-}
-
 [System.Serializable]
 public class BreedableItem : ItemRecord
 {
@@ -25,11 +14,13 @@ public class BreedableItem : ItemRecord
     public Rarity Rarity;
 
     public BreedableItem(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue, List<Vector2Int> combinations, List<uint> itemDrops, Rarity rarity) 
+        int sellValue, int purchaseValue, List<Vector2Int> combinations, List<uint> itemDrops, Rarity rarity)
         : base(name, id, dimensions, texturePath, sellValue, purchaseValue)
     {
         this.Combinations = combinations;
         this.ItemDrops = itemDrops;
         this.Rarity = rarity;
+
+        base.functionality = Functionality.Breedable;
     }
 }

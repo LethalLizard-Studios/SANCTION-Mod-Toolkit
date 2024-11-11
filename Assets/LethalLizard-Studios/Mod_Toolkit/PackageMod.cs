@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PackageMod : MonoBehaviour
 {
-    [SerializeField] private List<ScriptableItem> baseItems = new List<ScriptableItem>();
+    [SerializeField] private ScriptableItem[] baseItems;
 
     private string _filePath;
 
     private Dictionary<uint, ItemRecord> _itemDatabase = new Dictionary<uint, ItemRecord>();
 
-    void Start()
+    void Awake()
     {
         //List<ItemRecord> itemsToSave = new List<ItemRecord>
         //{
@@ -26,7 +26,7 @@ public class PackageMod : MonoBehaviour
 
     public void BuildItemDatabase()
     {
-        _itemDatabase = RetrieveBaseItemRecords();
+        _itemDatabase = RetrieveBaseItemRecords(baseItems);
 
         _filePath = Path.Combine(Application.dataPath, "mods");
 
@@ -47,25 +47,33 @@ public class PackageMod : MonoBehaviour
             List<ItemRecord> loadedItems = ItemSerializer.Load(jsonFiles[i]);
             foreach (var item in loadedItems)
             {
-                if (_itemDatabase.ContainsKey(item.id))
+                if (_itemDatabase.ContainsKey(item.ID))
                 {
                     Debug.Log($"Uh Oh! {item.name} doesn't have a unique item ID.");
                     continue;
                 }
 
                 Debug.Log($"Loaded item: {item.name} of type {item.GetType()}");
-                _itemDatabase.Add(item.id, item);
+                _itemDatabase.Add(item.ID, item);
             }
         }
     }
 
-    private Dictionary<uint, ItemRecord> RetrieveBaseItemRecords()
+    private Dictionary<uint, ItemRecord> RetrieveBaseItemRecords(ScriptableItem[] baseItems)
     {
         Dictionary<uint, ItemRecord> baseItemRecord = new Dictionary<uint, ItemRecord>();
 
-        for (int i = 0; i < baseItems.Count; i++)
+        for (int i = 0; i < baseItems.Length; i++)
         {
-            baseItemRecord.Add(baseItems[i].id, ScriptableItemToRecord.Convert(baseItems[i]));
+            ItemRecord itemRecord = ScriptableItemToRecord.Convert(baseItems[i]);
+
+            if (baseItemRecord.ContainsKey(itemRecord.ID))
+            {
+                Debug.Log("Base Item Database Already Contains ID:" + itemRecord.ID + ", Name:" + itemRecord.name);
+                continue;
+            }
+
+            baseItemRecord.Add((uint)baseItems[i].ID, itemRecord);
         }
 
         return baseItemRecord;

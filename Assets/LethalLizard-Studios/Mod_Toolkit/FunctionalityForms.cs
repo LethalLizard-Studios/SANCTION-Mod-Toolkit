@@ -37,7 +37,32 @@ public class FunctionalityForms : MonoBehaviour
     {
         FoodGroup foodGroup = FoodGroup.Mixture;
 
-        FoodItem foodItem = new FoodItem(_item.name, _item.id, _item.dimensions,
+        switch (FoodGroupDrop.value)
+        {
+            case 0:
+                foodGroup = FoodGroup.Mixture;
+                break;
+            case 1:
+                foodGroup = FoodGroup.Fruits;
+                break;
+            case 2:
+                foodGroup = FoodGroup.Vegetables;
+                break;
+            case 3:
+                foodGroup = FoodGroup.Grains;
+                break;
+            case 4:
+                foodGroup = FoodGroup.Protiens;
+                break;
+            case 5:
+                foodGroup = FoodGroup.Dairy;
+                break;
+            case 6:
+                foodGroup = FoodGroup.Pickled;
+                break;
+        }
+
+        FoodItem foodItem = new FoodItem(_item.name, _item.ID, _item.dimensions,
             _item.texturePath, _item.sellValue, _item.purchaseValue,
             uint.Parse(CaloriesInput.text), uint.Parse(HealAmountInput.text), foodGroup);
 
@@ -51,7 +76,7 @@ public class FunctionalityForms : MonoBehaviour
 
     public void SubmitDrink()
     {
-        DrinkItem drinkItem = new DrinkItem(_item.name, _item.id, _item.dimensions,
+        DrinkItem drinkItem = new DrinkItem(_item.name, _item.ID, _item.dimensions,
             _item.texturePath, _item.sellValue, _item.purchaseValue,
             uint.Parse(QuenchAmountInput.text), uint.Parse(AlcoholProofInput.text));
 
@@ -64,7 +89,7 @@ public class FunctionalityForms : MonoBehaviour
 
     public void SubmitHealth()
     {
-        HealthItem healthItem = new HealthItem(_item.name, _item.id, _item.dimensions,
+        HealthItem healthItem = new HealthItem(_item.name, _item.ID, _item.dimensions,
             _item.texturePath, _item.sellValue, _item.purchaseValue,
             uint.Parse(HealAmountHealthInput.text));
 
@@ -77,7 +102,7 @@ public class FunctionalityForms : MonoBehaviour
 
     public void SubmitAirFilter()
     {
-        AirFilterItem airFilterItem = new AirFilterItem(_item.name, _item.id, _item.dimensions,
+        AirFilterItem airFilterItem = new AirFilterItem(_item.name, _item.ID, _item.dimensions,
             _item.texturePath, _item.sellValue, _item.purchaseValue,
             uint.Parse(DurationInput.text));
 
@@ -90,7 +115,7 @@ public class FunctionalityForms : MonoBehaviour
 
     public void SubmitAnomalous()
     {
-        AnomalousItem anomalousItem = new AnomalousItem(_item.name, _item.id, _item.dimensions,
+        AnomalousItem anomalousItem = new AnomalousItem(_item.name, _item.ID, _item.dimensions,
             _item.texturePath, _item.sellValue, _item.purchaseValue,
             uint.Parse(SpiritualInput.text));
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -27,12 +28,24 @@ public class ItemInProgress : MonoBehaviour
             return;
         }
 
-        string[] jsonFiles = Directory.GetFiles(_filePath, "*.json");
+        StartCoroutine(LoadAndBuild(_filePath));
+    }
+
+    private IEnumerator LoadAndBuild(string filePath)
+    {
+        string[] jsonFiles = Directory.GetFiles(filePath, "*.json");
 
         for (int i = 0; i < jsonFiles.Length; i++)
         {
             _currentModsItems = ItemSerializer.Load(jsonFiles[i]);
+
         }
+
+        do
+        {
+            yield return null;
+        }
+        while (_currentModsItems.Count < jsonFiles.Length);
 
         if (_currentModsItems != null && _currentModsItems.Count > 0)
         {

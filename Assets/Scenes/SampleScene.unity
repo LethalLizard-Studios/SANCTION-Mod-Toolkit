@@ -1901,41 +1901,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260078559}
   m_CullTransparentMesh: 1
---- !u!1 &263404486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 263404487}
-  m_Layer: 5
-  m_Name: BREEDABLE
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &263404487
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263404486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1060110919}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &296835772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,7 +2340,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Grains
       m_Image: {fileID: 0}
-    - m_Text: Protiens
+    - m_Text: Proteins
       m_Image: {fileID: 0}
     - m_Text: Dairy
       m_Image: {fileID: 0}
@@ -6346,41 +6311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b33ef5c58b0c64ea3ad135b0e914d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &873129706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 873129707}
-  m_Layer: 5
-  m_Name: WEAPON_CAMO
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &873129707
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873129706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1060110919}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &878896883
 GameObject:
   m_ObjectHideFlags: 0
@@ -7396,8 +7326,6 @@ MonoBehaviour:
   - {fileID: 1095841927}
   - {fileID: 1349215389}
   - {fileID: 689763849}
-  - {fileID: 263404486}
-  - {fileID: 873129706}
 --- !u!1 &1060110918
 GameObject:
   m_ObjectHideFlags: 0
@@ -7430,8 +7358,6 @@ RectTransform:
   - {fileID: 692810147}
   - {fileID: 1242948541}
   - {fileID: 1095841928}
-  - {fileID: 263404487}
-  - {fileID: 873129707}
   - {fileID: 1349215390}
   - {fileID: 689763850}
   - {fileID: 436311033}
@@ -7459,8 +7385,6 @@ MonoBehaviour:
   - {fileID: 692810146}
   - {fileID: 1242948540}
   - {fileID: 1095841927}
-  - {fileID: 263404486}
-  - {fileID: 873129706}
   - {fileID: 1349215389}
   - {fileID: 689763849}
   CaloriesInput: {fileID: 1849441957}
@@ -11594,14 +11518,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 3
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 2
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 3
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -15008,14 +14932,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 3
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 2
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 3
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -15803,10 +15727,6 @@ MonoBehaviour:
     - m_Text: Air Filter
       m_Image: {fileID: 0}
     - m_Text: Anomalous
-      m_Image: {fileID: 0}
-    - m_Text: Breedable
-      m_Image: {fileID: 0}
-    - m_Text: Weapon Camo
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

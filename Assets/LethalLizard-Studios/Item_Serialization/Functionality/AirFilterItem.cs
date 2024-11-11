@@ -11,9 +11,12 @@ public class AirFilterItem : ItemRecord
     public uint Duration;
 
     public AirFilterItem(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue, uint duration) 
+        int sellValue, int purchaseValue, uint duration)
         : base(name, id, dimensions, texturePath, sellValue, purchaseValue)
     {
         this.Duration = duration;
+
+        base.savedValue = duration;
+        base.functionality = Functionality.AirFilter;
     }
 }

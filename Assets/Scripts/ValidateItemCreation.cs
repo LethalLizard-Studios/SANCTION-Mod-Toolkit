@@ -47,7 +47,7 @@ public class ValidateItemCreation : MonoBehaviour
 
         forms.SetBasicItem(new ItemRecord(displayNameInput.text, uint.Parse(IDInput.text),
             new Vector2Int(int.Parse(slotSizeWidthInput.text), int.Parse(slotSizeHeightInput.text)),
-            null, float.Parse(sellInput.text), float.Parse(purchaseInput.text)));
+            null, int.Parse(sellInput.text), int.Parse(purchaseInput.text)));
     }
 
     private bool ErrorCheck()

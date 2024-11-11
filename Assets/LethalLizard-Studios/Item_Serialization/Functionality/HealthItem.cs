@@ -11,9 +11,12 @@ public class HealthItem : ItemRecord
     public uint HealAmount;
 
     public HealthItem(string name, uint id, Vector2Int dimensions, string texturePath,
-        float sellValue, float purchaseValue, uint healAmount) 
+        int sellValue, int purchaseValue, uint healAmount)
         : base(name, id, dimensions, texturePath, sellValue, purchaseValue)
     {
         this.HealAmount = healAmount;
+
+        base.savedValue = healAmount;
+        base.functionality = Functionality.Health;
     }
 }
