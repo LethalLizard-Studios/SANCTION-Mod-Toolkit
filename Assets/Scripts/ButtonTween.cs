@@ -15,6 +15,8 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Color _originalColor;
     private Vector3 _originalScale;
 
+    private const float HIGHLIGHT_TINT = 0.12f;
+
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
@@ -32,9 +34,9 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _rectTransform.DOScale(_originalScale * 1.2f, 0.1f).SetUpdate(true);
 
         if (_image != null)
-            _image.DOColor(Color.white, 0.1f).SetUpdate(true);
+            _image.DOColor(_originalColor + (Color.white * HIGHLIGHT_TINT), 0.1f).SetUpdate(true);
         else if (_text != null)
-            _text.DOColor(Color.white, 0.1f).SetUpdate(true);
+            _text.DOColor(_originalColor + (Color.white * HIGHLIGHT_TINT), 0.1f).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
