@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+          token: ${{ secrets.KEY }}
 
       # Cache
       - uses: actions/cache@v3
@@ -33,7 +34,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.KEY }}
 
       # Build
       - name: Build project
@@ -44,6 +45,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
+          githubToken: ${{ secrets.KEY }}
 
       # Output
       - uses: actions/upload-artifact@v3
