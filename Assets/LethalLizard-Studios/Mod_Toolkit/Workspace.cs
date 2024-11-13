@@ -36,9 +36,9 @@ public class Workspace : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void CreateNewWorkspace()
+    public void CreateNewWorkspace(TMP_InputField input)
     {
-        string newModName = "New Mod";
+        string newModName = input.text;
 
         Directory.CreateDirectory(ModPath.HoldingDirectory+"/"+ newModName);
         Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
