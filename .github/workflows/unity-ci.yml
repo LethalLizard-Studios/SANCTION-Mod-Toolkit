@@ -33,8 +33,10 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          GITHUB_APP_ID: ${{ secrets.APP_ID }}
+          GITHUB_APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
         with:
-          githubToken: ${{ secrets.KEY }}
+          githubToken: ${{ secrets.GITHUB_APP_TOKEN }}
 
       # Build
       - name: Build project
@@ -43,9 +45,11 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          GITHUB_APP_ID: ${{ secrets.APP_ID }}
+          GITHUB_APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
         with:
           targetPlatform: StandaloneWindows64
-          githubToken: ${{ secrets.KEY }}
+          githubToken: ${{ secrets.GITHUB_APP_TOKEN }}
 
       # Output
       - uses: actions/upload-artifact@v3
