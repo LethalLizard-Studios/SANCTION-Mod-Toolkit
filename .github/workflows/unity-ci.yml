@@ -1,10 +1,10 @@
-name: Actions 😎
+name: Actions
 
 on: [push, pull_request]
 
 jobs:
   build:
-    name: Build my project ✨
+    name: Build & Test Project
     runs-on: ubuntu-latest
     permissions:
       contents: write
