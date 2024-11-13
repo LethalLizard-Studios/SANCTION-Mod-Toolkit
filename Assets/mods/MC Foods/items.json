@@ -1,71 +1,71 @@
 {
     "Items": [
         {
-            "ItemJson": "{\"name\":\"Apple\",\"ID\":2180,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Apple.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":0}",
+            "ItemJson": "{\"name\":\"Apple\",\"ID\":2180,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Apple.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":0}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Bread\",\"ID\":2181,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Bread.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":4,\"FoodGroup\":2}",
+            "ItemJson": "{\"name\":\"Bread\",\"ID\":2181,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Bread.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":4,\"FoodGroup\":2}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Carrot\",\"ID\":2182,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Carrot.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":30,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":30,\"HealAmount\":5,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Carrot\",\"ID\":2182,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Carrot.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":30,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":30,\"HealAmount\":5,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Baked Potato\",\"ID\":2183,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Potato.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":30,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":30,\"HealAmount\":3,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Baked Potato\",\"ID\":2183,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Potato.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":30,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":30,\"HealAmount\":3,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Melon Slice\",\"ID\":2184,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Melon.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":0}",
+            "ItemJson": "{\"name\":\"Melon Slice\",\"ID\":2184,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Melon.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":0}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Beetroot\",\"ID\":2185,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Beetroot.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Beetroot\",\"ID\":2185,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Beetroot.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":20,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":20,\"HealAmount\":2,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Egg\",\"ID\":2186,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Egg.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":3,\"FoodGroup\":3}",
+            "ItemJson": "{\"name\":\"Egg\",\"ID\":2186,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Egg.png\",\"sellValue\":3,\"purchaseValue\":9,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":3,\"FoodGroup\":3}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Glow Berry\",\"ID\":2187,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GlowBerry.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":10,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":10,\"HealAmount\":1,\"FoodGroup\":0}",
+            "ItemJson": "{\"name\":\"Glow Berry\",\"ID\":2187,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GlowBerry.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":10,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":10,\"HealAmount\":1,\"FoodGroup\":0}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Sweet Berry\",\"ID\":2188,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_SweetBerry.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":10,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":10,\"HealAmount\":1,\"FoodGroup\":0}",
+            "ItemJson": "{\"name\":\"Sweet Berry\",\"ID\":2188,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_SweetBerry.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":10,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":10,\"HealAmount\":1,\"FoodGroup\":0}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Honey Comb\",\"ID\":2189,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_HoneyComb.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":8,\"FoodGroup\":6}",
+            "ItemJson": "{\"name\":\"Honey Comb\",\"ID\":2189,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_HoneyComb.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":8,\"FoodGroup\":6}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Golden Apple\",\"ID\":2190,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GoldenApple.png\",\"sellValue\":46,\"purchaseValue\":92,\"rarity\":-1,\"savedValue\":260,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":260,\"HealAmount\":50,\"FoodGroup\":0}",
+            "ItemJson": "{\"name\":\"Golden Apple\",\"ID\":2190,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GoldenApple.png\",\"sellValue\":46,\"purchaseValue\":92,\"rarity\":-1,\"savedValue\":260,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":260,\"HealAmount\":50,\"FoodGroup\":0}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Golden Carrot\",\"ID\":2191,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GoldenCarrot.png\",\"sellValue\":42,\"purchaseValue\":86,\"rarity\":-1,\"savedValue\":220,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":220,\"HealAmount\":30,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Golden Carrot\",\"ID\":2191,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_GoldenCarrot.png\",\"sellValue\":42,\"purchaseValue\":86,\"rarity\":-1,\"savedValue\":220,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":220,\"HealAmount\":30,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Cookie\",\"ID\":2192,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Cookie.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":1,\"FoodGroup\":2}",
+            "ItemJson": "{\"name\":\"Cookie\",\"ID\":2192,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Cookie.png\",\"sellValue\":2,\"purchaseValue\":6,\"rarity\":-1,\"savedValue\":40,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":40,\"HealAmount\":1,\"FoodGroup\":2}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Cake\",\"ID\":2193,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Cake.png\",\"sellValue\":12,\"purchaseValue\":30,\"rarity\":-1,\"savedValue\":180,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":180,\"HealAmount\":1,\"FoodGroup\":2}",
+            "ItemJson": "{\"name\":\"Cake\",\"ID\":2193,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_Cake.png\",\"sellValue\":12,\"purchaseValue\":30,\"rarity\":-1,\"savedValue\":180,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":180,\"HealAmount\":1,\"FoodGroup\":2}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Mushroom Stew\",\"ID\":2194,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_MushroomStew.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":80,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":80,\"HealAmount\":5,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Mushroom Stew\",\"ID\":2194,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_MushroomStew.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":80,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":80,\"HealAmount\":5,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Beetroot Soup\",\"ID\":2195,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_BeetrootSoup.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":80,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":80,\"HealAmount\":7,\"FoodGroup\":1}",
+            "ItemJson": "{\"name\":\"Beetroot Soup\",\"ID\":2195,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_BeetrootSoup.png\",\"sellValue\":6,\"purchaseValue\":18,\"rarity\":-1,\"savedValue\":80,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":80,\"HealAmount\":7,\"FoodGroup\":1}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         {
-            "ItemJson": "{\"name\":\"Pumpkin Pie\",\"ID\":2196,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_PumpkinPie.png\",\"sellValue\":12,\"purchaseValue\":30,\"rarity\":-1,\"savedValue\":120,\"merchantID\":{\"x\":-1,\"y\":-1},\"containedInLootID\":[],\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":120,\"HealAmount\":3,\"FoodGroup\":6}",
+            "ItemJson": "{\"name\":\"Pumpkin Pie\",\"ID\":2196,\"dimensions\":{\"x\":1,\"y\":1},\"texturePath\":\"Spr_MC_PumpkinPie.png\",\"sellValue\":12,\"purchaseValue\":30,\"rarity\":-1,\"savedValue\":120,\"merchantID\":{\"x\":-1,\"y\":-1},\"lootID\":{\"x\":0,\"y\":0},\"modPackName\":\"MC Foods\",\"icon\":{\"instanceID\":0},\"functionality\":3,\"Calories\":120,\"HealAmount\":3,\"FoodGroup\":6}",
             "ItemFunctionality": "FoodItem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
         }
     ]

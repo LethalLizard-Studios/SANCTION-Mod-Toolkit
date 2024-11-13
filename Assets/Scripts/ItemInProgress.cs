@@ -8,6 +8,8 @@ public class ItemInProgress : MonoBehaviour
 {
     public string currentModpack = "Test";
 
+    [SerializeField] private EditItem editItem;
+
     [SerializeField] private GameObject RenamePrompt;
 
     [SerializeField] private GameObject Homepage;
@@ -18,6 +20,8 @@ public class ItemInProgress : MonoBehaviour
 
     private List<ItemRecord> _currentModsItems = new List<ItemRecord>();
     private ItemRecord _item;
+
+    private List<GameObject> _itemPrefabs = new List<GameObject>();
 
     private string _texture = null;
 
@@ -41,7 +45,6 @@ public class ItemInProgress : MonoBehaviour
         for (int i = 0; i < jsonFiles.Length; i++)
         {
             _currentModsItems = ItemSerializer.Load(jsonFiles[i]);
-
         }
 
         do
@@ -54,11 +57,7 @@ public class ItemInProgress : MonoBehaviour
         {
             TutorialPrompts.SetActive(false);
 
-            for (int i = 0; i < _currentModsItems.Count; i++)
-            {
-                Instantiate(ItemPrefab, ItemContainer).GetComponent<ItemContentView>()
-                    .Build(_currentModsItems[i], this);
-            }
+            CreateListItems();
         }
     }
 
@@ -123,5 +122,30 @@ public class ItemInProgress : MonoBehaviour
     public void SaveMod()
     {
         ItemSerializer.Save(_currentModsItems, ModPath.HoldingDirectory + currentModpack + "/items.json");
+        RefreshList();
+    }
+
+    private void RefreshList()
+    {
+        for (int i = 0; i < _itemPrefabs.Count; i++)
+        {
+            Destroy(_itemPrefabs[i]);
+        }
+        _itemPrefabs.Clear();
+
+        CreateListItems();
+    }
+
+    private void CreateListItems()
+    {
+        for (int i = 0; i < _currentModsItems.Count; i++)
+        {
+            GameObject item = Instantiate(ItemPrefab, ItemContainer);
+
+            item.GetComponent<ItemContentView>()
+                .Build(_currentModsItems[i], this, editItem);
+
+            _itemPrefabs.Add(item);
+        }
     }
 }

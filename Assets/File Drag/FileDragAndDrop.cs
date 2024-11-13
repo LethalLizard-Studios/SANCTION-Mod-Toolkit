@@ -3,6 +3,7 @@ using UnityEngine;
 using B83.Win32;
 using UnityEngine.UI;
 using System.IO;
+using System.Linq;
 
 
 public class FileDragAndDrop : MonoBehaviour
@@ -68,6 +69,20 @@ public class FileDragAndDrop : MonoBehaviour
     {
         if (aInfo == null)
             return;
+
+        //If image not in correct folder move it.
+        if (!aInfo.file.Contains("mods") || !aInfo.file.Contains(itemInProgress.currentModpack))
+        {
+            try
+            {
+                FileInfo fileInfo = new FileInfo(aInfo.file);
+                File.Copy(aInfo.file, ModPath.HoldingDirectory+itemInProgress.currentModpack+"/"+ fileInfo.Name);
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error moving file: " + e.Message);
+            }
+        }
 
         var data = System.IO.File.ReadAllBytes(aInfo.file);
         var tex = new Texture2D(1, 1);

@@ -29,6 +29,16 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             _originalColor = _text.color;
     }
 
+    private void OnDisable()
+    {
+        if (_image != null)
+            _image.color = _originalColor;
+        else if (_text != null)
+            _text.color = _originalColor;
+
+        _rectTransform.localScale = _originalScale;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         _rectTransform.DOScale(_originalScale * 1.2f, 0.1f).SetUpdate(true);

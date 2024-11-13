@@ -1,8 +1,12 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class EditItem : MonoBehaviour
 {
+    [SerializeField] private GameObject editPage;
+    [SerializeField] private RectTransform itemListTransform;
+
     [SerializeField] private TMP_InputField inputID;
     [SerializeField] private TMP_InputField inputDisplayName;
     [SerializeField] private TMP_InputField inputWidth;
@@ -11,10 +15,19 @@ public class EditItem : MonoBehaviour
     [SerializeField] private TMP_InputField inputPurchase;
 
     private ItemRecord _currentItem;
+    private ItemContentView _view = null;
 
-    public void LoadItem(ItemRecord itemRecord)
+    public void LoadItem(ItemRecord itemRecord, ItemContentView view)
     {
+        if (_view != null)
+        {
+            _view.Highlight(false);
+        }
+
+        itemListTransform.DOLocalMoveX(120, 0.15f);
+
         _currentItem = itemRecord;
+        _view = view;
 
         inputID.text = itemRecord.ID.ToString();
         inputDisplayName.text = itemRecord.name.ToString();
@@ -24,6 +37,8 @@ public class EditItem : MonoBehaviour
 
         inputSell.text = itemRecord.sellValue.ToString();
         inputPurchase.text = itemRecord.purchaseValue.ToString();
+
+        editPage.SetActive(true);
     }
 
     public void SaveItem()
@@ -35,5 +50,29 @@ public class EditItem : MonoBehaviour
 
         _currentItem.sellValue = int.Parse(inputSell.text);
         _currentItem.purchaseValue = int.Parse(inputPurchase.text);
+
+        CloseMenu();
+
+        _view.SaveEdit();
+        _view = null;
+    }
+
+    public void DeleteItem()
+    {
+        _view.Delete();
+        _view = null;
+        CloseMenu();
+    }
+
+    public void CancelItem()
+    {
+        CloseMenu();
+        _view.Highlight(false);
+    }
+
+    private void CloseMenu()
+    {
+        itemListTransform.DOLocalMoveX(0, 0.3f);
+        editPage.SetActive(false);
     }
 }
