@@ -6,92 +6,85 @@ using UnityEngine;
 
 public class ItemInProgress : MonoBehaviour
 {
-    public string currentModpack = "Test";
+    [HideInInspector] public string currentModpack = "Test";
 
     [SerializeField] private EditItem editItem;
+    [SerializeField] private GameObject renamePrompt;
+    [SerializeField] private GameObject dashboardPage;
+    [SerializeField] private GameObject emptyGuide;
 
-    [SerializeField] private GameObject RenamePrompt;
-
-    [SerializeField] private GameObject Homepage;
-
-    [SerializeField] private GameObject TutorialPrompts;
-    [SerializeField] private GameObject ItemPrefab;
-    [SerializeField] private Transform ItemContainer;
+    [SerializeField] private GameObject itemViewPrefab;
+    [SerializeField] private Transform itemViewContainer;
 
     private List<ItemRecord> _currentModsItems = new List<ItemRecord>();
     private ItemRecord _item;
 
     private List<GameObject> _itemPrefabs = new List<GameObject>();
-
-    private string _texture = null;
+    private string _texture;
 
     private void OnEnable()
     {
-        string _filePath = ModPath.HoldingDirectory + currentModpack;
+        string modPath = ModPath.HoldingDirectory + currentModpack;
 
-        if (!Directory.Exists(_filePath))
+        if (!Directory.Exists(modPath))
         {
-            Debug.Log("Mod does not exist!");
+            Debug.LogError("Mod does not exist!");
             return;
         }
 
-        StartCoroutine(LoadAndBuild(_filePath));
+        LoadAndBuildItems(modPath);
     }
 
-    private IEnumerator LoadAndBuild(string filePath)
+    private void LoadAndBuildItems(string filePath)
     {
         string[] jsonFiles = Directory.GetFiles(filePath, "*.json");
 
-        for (int i = 0; i < jsonFiles.Length; i++)
+        foreach (string jsonFile in jsonFiles)
         {
-            _currentModsItems = ItemSerializer.Load(jsonFiles[i]);
+            _currentModsItems.AddRange(ItemSerializer.Load(jsonFile));
         }
 
-        do
+        if (_currentModsItems.Count > 0)
         {
-            yield return null;
-        }
-        while (_currentModsItems.Count < jsonFiles.Length);
-
-        if (_currentModsItems != null && _currentModsItems.Count > 0)
-        {
-            TutorialPrompts.SetActive(false);
-
-            CreateListItems();
+            emptyGuide.SetActive(false);
+            CreateItemList();
         }
     }
 
     public void OpenRenamePrompt()
     {
-        RenamePrompt.SetActive(true);
+        renamePrompt.SetActive(true);
     }
 
     public void SubmitRename(TMP_InputField nameInput)
     {
-        RenamePrompt.SetActive(false);
+        renamePrompt.SetActive(false);
         RenameModpack(nameInput.text);
     }
 
     private void RenameModpack(string newName)
     {
-        if (newName.Length <= 1)
-            return;
+        if (newName.Length <= 1) return;
 
-        Directory.Move(ModPath.HoldingDirectory + currentModpack, ModPath.HoldingDirectory + newName);
+        string oldModpackPath = ModPath.HoldingDirectory + currentModpack;
+        string newModpackPath = ModPath.HoldingDirectory + newName;
+
+        Directory.Move(oldModpackPath, newModpackPath);
         currentModpack = newName;
 
-        for (int i = 0; i < _currentModsItems.Count; i++)
+        foreach (ItemRecord item in _currentModsItems)
         {
-            _currentModsItems[i].modPackName = newName;
+            item.modPackName = newName;
         }
     }
 
     public void RemoveItemFromMod(ItemRecord item)
     {
         if (_currentModsItems.Contains(item))
+        {
             _currentModsItems.Remove(item);
-
-        SaveMod();
+            SaveMod();
+        }
     }
 
     public void SetTexture(string texture)
@@ -106,46 +99,41 @@ public class ItemInProgress : MonoBehaviour
 
     public void BuildItem()
     {
+        if (_item == null) return;
+
         _item.texturePath = _texture;
         _item.modPackName = currentModpack;
 
-        if (_currentModsItems == null)
-            _currentModsItems = new List<ItemRecord>();
-
         _currentModsItems.Add(_item);
-
         SaveMod();
 
-        Homepage.SetActive(true);
+        dashboardPage.SetActive(true);
     }
 
     public void SaveMod()
     {
         ItemSerializer.Save(_currentModsItems, ModPath.HoldingDirectory + currentModpack + "/items.json");
-        RefreshList();
+        RefreshItemList();
     }
 
-    private void RefreshList()
+    private void RefreshItemList()
     {
-        for (int i = 0; i < _itemPrefabs.Count; i++)
+        foreach (GameObject item in _itemPrefabs)
         {
-            Destroy(_itemPrefabs[i]);
+            Destroy(item);
         }
-        _itemPrefabs.Clear();
 
-        CreateListItems();
+        _itemPrefabs.Clear();
+        CreateItemList();
     }
 
-    private void CreateListItems()
+    private void CreateItemList()
     {
-        for (int i = 0; i < _currentModsItems.Count; i++)
+        foreach (ItemRecord item in _currentModsItems)
         {
-            GameObject item = Instantiate(ItemPrefab, ItemContainer);
-
-            item.GetComponent<ItemContentView>()
-                .Build(_currentModsItems[i], this, editItem);
-
-            _itemPrefabs.Add(item);
+            GameObject itemObject = Instantiate(itemViewPrefab, itemViewContainer);
+            itemObject.GetComponent<ItemContentView>().Build(item, this, editItem);
+            _itemPrefabs.Add(itemObject);
         }
     }
 }

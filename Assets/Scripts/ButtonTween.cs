@@ -12,6 +12,8 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Image _image;
     private TextMeshProUGUI _text;
 
+    private Button _button;
+
     private Color _originalColor;
     private Vector3 _originalScale;
 
@@ -23,9 +25,12 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         _originalScale = _rectTransform.localScale;
 
-        if (TryGetComponent<Image>(out _image))
+        if (TryGetComponent(out _button))
+            _button.onClick.AddListener(OnClicked);
+
+        if (TryGetComponent(out _image))
             _originalColor = _image.color;
-        else if (TryGetComponent<TextMeshProUGUI>(out _text))
+        else if (TryGetComponent(out _text))
             _originalColor = _text.color;
     }
 
@@ -37,6 +42,11 @@ public class ButtonTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             _text.color = _originalColor;
 
         _rectTransform.localScale = _originalScale;
+    }
+
+    public void OnClicked()
+    {
+        _rectTransform.DOPunchScale(_originalScale * -0.2f, 0.25f).SetUpdate(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
