@@ -20,13 +20,13 @@ jobs:
 
       # Step 2: Set up Unity
       - name: Setup Unity
-        uses: game-ci/unity-actions/setup@v2
+        uses: game-ci/unity-actions/setup@v4
         with:
           version: 2022.3.19f1  # Specify the Unity version
 
       # Step 3: Cache Unity dependencies (optional but recommended)
       - name: Cache Unity Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cache/unity
           key: ${{ runner.os }}-unity-${{ hashFiles('**/*.cs', '**/*.unity', '**/*.prefab') }}
