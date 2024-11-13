@@ -1,0 +1,54 @@
+name: Unity Test and Build
+
+# Trigger on push or pull request to the main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use macos-latest or windows-latest if necessary
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Unity
+      - name: Setup Unity
+        uses: game-ci/unity-actions/setup@v2
+        with:
+          version: 2022.3.19f1  # Specify the Unity version
+
+      # Step 3: Cache Unity dependencies (optional but recommended)
+      - name: Cache Unity Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/unity
+          key: ${{ runner.os }}-unity-${{ hashFiles('**/*.cs', '**/*.unity', '**/*.prefab') }}
+          restore-keys: |
+            ${{ runner.os }}-unity-
+
+      # Step 4: Install necessary dependencies (optional, depending on your project)
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+
+      # Step 5: Run Unit Tests
+      - name: Run Unity Tests
+        run: |
+          ./build.sh  # Custom build script to run tests
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      # Step 6: Upload test results (optional)
+      - name: Upload Test Results
+        if: always()  # This ensures this step runs even if the tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: test-results.xml  # Change if your test result file path is different
