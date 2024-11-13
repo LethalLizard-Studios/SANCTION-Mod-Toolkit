@@ -1,3 +1,8 @@
+/* All Rights Reserved to LethalLizard Studios
+-- Created By: Leland T L Carter
+-- DATE: 11/12/2024
+*/
+
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -7,69 +12,81 @@ public class EditItem : MonoBehaviour
     [SerializeField] private GameObject editPage;
     [SerializeField] private RectTransform itemListTransform;
 
-    [SerializeField] private TMP_InputField inputID;
-    [SerializeField] private TMP_InputField inputDisplayName;
-    [SerializeField] private TMP_InputField inputWidth;
-    [SerializeField] private TMP_InputField inputHeight;
-    [SerializeField] private TMP_InputField inputSell;
-    [SerializeField] private TMP_InputField inputPurchase;
+    [System.Serializable]
+    public class ItemFields
+    {
+        public TMP_InputField inputID;
+        public TMP_InputField inputDisplayName;
+        public TMP_InputField inputWidth;
+        public TMP_InputField inputHeight;
+        public TMP_InputField inputSell;
+        public TMP_InputField inputPurchase;
+    }
+    [SerializeField] private ItemFields itemFields;
 
     private ItemRecord _currentItem;
-    private ItemContentView _view = null;
+    private ItemContentView _currentView;
 
+    // Method to load item data into the edit page UI
     public void LoadItem(ItemRecord itemRecord, ItemContentView view)
     {
-        if (_view != null)
-        {
-            _view.Highlight(false);
-        }
+        // Deselect the previous view if any
+        _currentView?.Highlight(false);
 
+        // Animate the item list sliding
         itemListTransform.DOLocalMoveX(120, 0.15f);
 
+        // Assign current item and view
         _currentItem = itemRecord;
-        _view = view;
+        _currentView = view;
 
-        inputID.text = itemRecord.ID.ToString();
-        inputDisplayName.text = itemRecord.name.ToString();
+        // Populate input fields with item data
+        itemFields.inputID.text = itemRecord.ID.ToString();
+        itemFields.inputDisplayName.text = itemRecord.name;
+        itemFields.inputWidth.text = itemRecord.dimensions.x.ToString();
+        itemFields.inputHeight.text = itemRecord.dimensions.y.ToString();
+        itemFields.inputSell.text = itemRecord.sellValue.ToString();
+        itemFields.inputPurchase.text = itemRecord.purchaseValue.ToString();
 
-        inputWidth.text = itemRecord.dimensions.x.ToString();
-        inputHeight.text = itemRecord.dimensions.y.ToString();
-
-        inputSell.text = itemRecord.sellValue.ToString();
-        inputPurchase.text = itemRecord.purchaseValue.ToString();
-
+        // Show the edit page
         editPage.SetActive(true);
     }
 
+    // Method to save the edited item
     public void SaveItem()
     {
-        _currentItem.ID = uint.Parse(inputID.text);
-        _currentItem.name = inputDisplayName.text;
+        // Update current item with input field data
+        _currentItem.ID = uint.Parse(itemFields.inputID.text);
+        _currentItem.name = itemFields.inputDisplayName.text;
+        _currentItem.dimensions = new Vector2Int(int.Parse(itemFields.inputWidth.text)
+            , int.Parse(itemFields.inputHeight.text));
+        _currentItem.sellValue = int.Parse(itemFields.inputSell.text);
+        _currentItem.purchaseValue = int.Parse(itemFields.inputPurchase.text);
 
-        _currentItem.dimensions = new Vector2Int(int.Parse(inputWidth.text), int.Parse(inputHeight.text));
-
-        _currentItem.sellValue = int.Parse(inputSell.text);
-        _currentItem.purchaseValue = int.Parse(inputPurchase.text);
-
+        // Close the edit menu and save changes to the view
         CloseMenu();
+        _currentView.SaveEdit();
 
-        _view.SaveEdit();
-        _view = null;
+        // Reset the current view
+        _currentView = null;
     }
 
+    // Method to delete the current item
     public void DeleteItem()
     {
-        _view.Delete();
-        _view = null;
+        _currentView?.Delete();
+        _currentView = null;
         CloseMenu();
     }
 
+    // Method to cancel changes and close the menu
     public void CancelItem()
     {
         CloseMenu();
-        _view.Highlight(false);
+        _currentView?.Highlight(false);
     }
 
+    // Helper method to close the edit menu with an animation
     private void CloseMenu()
     {
         itemListTransform.DOLocalMoveX(0, 0.3f);

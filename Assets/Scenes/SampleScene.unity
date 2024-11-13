@@ -3928,7 +3928,7 @@ GameObject:
   - component: {fileID: 315333613}
   - component: {fileID: 315333614}
   m_Layer: 5
-  m_Name: PreviewTexture
+  m_Name: '[Pg] PREVIEW ICON'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3941,7 +3941,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315333612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3950,7 +3950,7 @@ RectTransform:
   - {fileID: 421282074}
   - {fileID: 440682940}
   - {fileID: 1406418348}
-  m_Father: {fileID: 2086818197}
+  m_Father: {fileID: 654958995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7357,7 +7357,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9002,6 +9002,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647402220}
   m_CullTransparentMesh: 1
+--- !u!1 &654958994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654958995}
+  m_Layer: 5
+  m_Name: '[Pg_Grp] NEW ITEM'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &654958995
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654958994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1174852343}
+  - {fileID: 2006089671}
+  - {fileID: 315333613}
+  - {fileID: 1053668433}
+  - {fileID: 1060110919}
+  m_Father: {fileID: 2086818197}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &677373699
 GameObject:
   m_ObjectHideFlags: 0
@@ -10308,7 +10348,7 @@ GameObject:
   - component: {fileID: 773297933}
   - component: {fileID: 773297934}
   m_Layer: 5
-  m_Name: ModSelector
+  m_Name: '[Pg] LANDING'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13227,7 +13267,7 @@ GameObject:
   - component: {fileID: 1015480598}
   - component: {fileID: 1015480601}
   m_Layer: 5
-  m_Name: Button_SaveEdit
+  m_Name: Button_Delete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13908,7 +13948,7 @@ GameObject:
   - component: {fileID: 1053668433}
   - component: {fileID: 1053668434}
   m_Layer: 5
-  m_Name: ItemProperties
+  m_Name: '[Pg] ITEM CATEGORY'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13921,14 +13961,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053668432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1979047486}
   - {fileID: 1881053890}
-  m_Father: {fileID: 2086818197}
+  m_Father: {fileID: 654958995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13968,7 +14008,7 @@ GameObject:
   - component: {fileID: 1060110919}
   - component: {fileID: 1060110920}
   m_Layer: 5
-  m_Name: Item_Functionality
+  m_Name: '[Pg] ITEM FUNCTIONALITY'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13992,7 +14032,7 @@ RectTransform:
   - {fileID: 1349215390}
   - {fileID: 689763850}
   - {fileID: 436311033}
-  m_Father: {fileID: 2086818197}
+  m_Father: {fileID: 654958995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14817,7 +14857,7 @@ GameObject:
   - component: {fileID: 1174852343}
   - component: {fileID: 1174852344}
   m_Layer: 5
-  m_Name: NewItem
+  m_Name: '[Pg] ITEM CREATION'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14830,7 +14870,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174852342}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14839,7 +14879,7 @@ RectTransform:
   - {fileID: 620654035}
   - {fileID: 958787306}
   - {fileID: 1209176327}
-  m_Father: {fileID: 2086818197}
+  m_Father: {fileID: 654958995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15610,7 +15650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1216515979}
   m_Layer: 5
-  m_Name: Message_Popup
+  m_Name: '[Popup] ERROR MESSAGE'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16368,7 +16408,7 @@ GameObject:
   - component: {fileID: 1268269992}
   - component: {fileID: 1268269993}
   m_Layer: 5
-  m_Name: Homepage
+  m_Name: '[Pg] DASHBOARD'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17356,7 +17396,7 @@ GameObject:
   - component: {fileID: 1346659179}
   - component: {fileID: 1346659178}
   m_Layer: 5
-  m_Name: StatusBar
+  m_Name: '[Nav] HEADER'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19700,7 +19740,7 @@ GameObject:
   - component: {fileID: 1577296410}
   - component: {fileID: 1577296412}
   m_Layer: 0
-  m_Name: ModBuilder
+  m_Name: __MANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19795,12 +19835,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editPage: {fileID: 1404520935}
   itemListTransform: {fileID: 1513920573}
-  inputID: {fileID: 251319061}
-  inputDisplayName: {fileID: 1578048513}
-  inputWidth: {fileID: 979175846}
-  inputHeight: {fileID: 220894631}
-  inputSell: {fileID: 1922041221}
-  inputPurchase: {fileID: 92183028}
+  itemFields:
+    inputID: {fileID: 251319061}
+    inputDisplayName: {fileID: 1578048513}
+    inputWidth: {fileID: 979175846}
+    inputHeight: {fileID: 220894631}
+    inputSell: {fileID: 1922041221}
+    inputPurchase: {fileID: 92183028}
 --- !u!1 &1578048511
 GameObject:
   m_ObjectHideFlags: 0
@@ -23779,7 +23820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866140594}
   m_Layer: 5
-  m_Name: Rename_Prompt
+  m_Name: '[Popup] RENAME'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25770,7 +25811,7 @@ GameObject:
   - component: {fileID: 2006089671}
   - component: {fileID: 2006089672}
   m_Layer: 5
-  m_Name: ImportTexture
+  m_Name: '[Pg] IMPORT ICON'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25783,7 +25824,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006089670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25793,7 +25834,7 @@ RectTransform:
   - {fileID: 1665441286}
   - {fileID: 324621207}
   - {fileID: 1377304671}
-  m_Father: {fileID: 2086818197}
+  m_Father: {fileID: 654958995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27086,14 +27127,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1346659177}
-  - {fileID: 1174852343}
-  - {fileID: 2006089671}
-  - {fileID: 315333613}
-  - {fileID: 1053668433}
-  - {fileID: 1060110919}
-  - {fileID: 1268269992}
-  - {fileID: 1216515979}
   - {fileID: 1866140594}
+  - {fileID: 1216515979}
+  - {fileID: 654958995}
+  - {fileID: 1268269992}
   - {fileID: 773297933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28030,6 +28067,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 2086818197}
   - {fileID: 1280934418}
   - {fileID: 1577296406}
+  - {fileID: 2086818197}
