@@ -6,6 +6,10 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
       # Checkout
       - name: Checkout repository
@@ -29,7 +33,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.KEY }}
 
       # Build
       - name: Build project
