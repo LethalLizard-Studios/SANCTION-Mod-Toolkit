@@ -1,54 +1,48 @@
-name: Unity Test and Build
+name: Actions 😎
 
-# Trigger on push or pull request to the main branch
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest  # Use macos-latest or windows-latest if necessary
-
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout Code
+      # Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      # Step 2: Set up Unity
-      - name: Setup Unity
-        uses: game-ci/unity-actions/setup@v4
         with:
-          version: 2022.3.19f1  # Specify the Unity version
+          lfs: true
 
-      # Step 3: Cache Unity dependencies (optional but recommended)
-      - name: Cache Unity Dependencies
-        uses: actions/cache@v4
+      # Cache
+      - uses: actions/cache@v3
         with:
-          path: ~/.cache/unity
-          key: ${{ runner.os }}-unity-${{ hashFiles('**/*.cs', '**/*.unity', '**/*.prefab') }}
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            ${{ runner.os }}-unity-
+            Library-
 
-      # Step 4: Install necessary dependencies (optional, depending on your project)
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-
-      # Step 5: Run Unit Tests
-      - name: Run Unity Tests
-        run: |
-          ./build.sh  # Custom build script to run tests
+      # Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-
-      # Step 6: Upload test results (optional)
-      - name: Upload Test Results
-        if: always()  # This ensures this step runs even if the tests fail
-        uses: actions/upload-artifact@v3
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          name: test-results
-          path: test-results.xml  # Change if your test result file path is different
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneWindows64
+
+      # Output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Build
+          path: build
