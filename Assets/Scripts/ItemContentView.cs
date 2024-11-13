@@ -35,6 +35,9 @@ public class ItemContentView : MonoBehaviour
         idText.text = "ID: "+ item.ID;
         iconImage.sprite = item.FetchTexture();
 
+        RectTransform rectTransform = iconImage.GetComponent<RectTransform>();
+        MaintainAspectRatio.UpdateSize(rectTransform, item.dimensions, new Vector2Int(0, 60));
+
         _itemInProgress = itemInProgress;
     }
 

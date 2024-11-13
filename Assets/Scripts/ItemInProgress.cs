@@ -54,6 +54,7 @@ public class ItemInProgress : MonoBehaviour
     public void OpenRenamePrompt()
     {
         renamePrompt.SetActive(true);
+        renamePrompt.GetComponent<RenameView>().SetInputText(currentModpack);
     }
 
     public void SubmitRename(TMP_InputField nameInput)
