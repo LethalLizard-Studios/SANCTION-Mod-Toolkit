@@ -983,7 +983,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 16
+  m_PixelsPerUnitMultiplier: 11
 --- !u!222 &68289707
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22172,7 +22172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Mod Name...
+  m_text: Enter Mod Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8ff360350b85c8b4cbef6ee8b32edb69, type: 2}
   m_sharedMaterial: {fileID: -4470666597366760908, guid: 8ff360350b85c8b4cbef6ee8b32edb69, type: 2}
@@ -22181,8 +22181,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283644738
-  m_fontColor: {r: 0.25882354, g: 0.23137257, b: 0.3254902, a: 1}
+    rgba: 4285950830
+  m_fontColor: {r: 0.4329184, g: 0.42083484, b: 0.46226418, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -22205,7 +22205,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535

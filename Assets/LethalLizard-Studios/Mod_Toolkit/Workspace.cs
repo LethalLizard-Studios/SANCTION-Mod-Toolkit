@@ -40,6 +40,9 @@ public class Workspace : MonoBehaviour
     {
         string newModName = input.text;
 
+        if (string.IsNullOrEmpty(newModName))
+            return;
+
         Directory.CreateDirectory(ModPath.HoldingDirectory+"/"+ newModName);
         Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
         button.GetChild(0).GetComponent<TextMeshProUGUI>().text = newModName;
