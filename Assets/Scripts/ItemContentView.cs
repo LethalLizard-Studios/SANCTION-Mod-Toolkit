@@ -18,7 +18,7 @@ public class ItemContentView : MonoBehaviour
     private ItemRecord _itemRecord;
     private ItemInProgress _itemInProgress;
 
-    private EditItem _editItem;
+    private ItemListContainer _itemListContainer;
 
     private void Awake()
     {
@@ -26,10 +26,10 @@ public class ItemContentView : MonoBehaviour
         _originalColor = _image.color;
     }
 
-    public void Build(ItemRecord item, ItemInProgress itemInProgress, EditItem editItem)
+    public void Build(ItemRecord item, ItemInProgress itemInProgress, ItemListContainer itemListContainer)
     {
         _itemRecord = item;
-        _editItem = editItem;
+        _itemListContainer = itemListContainer;
 
         displayNameText.text = item.name;
         idText.text = "ID: "+ item.ID;
@@ -52,9 +52,11 @@ public class ItemContentView : MonoBehaviour
         }
     }
 
-    public void SaveEdit()
+    public void SaveEdit(ItemRecord newItemRecord)
     {
+        _itemListContainer.EditItem(_itemRecord, newItemRecord);
         _itemInProgress.SaveMod();
+        Highlight(false);
     }
 
     public void Delete()
@@ -65,7 +67,7 @@ public class ItemContentView : MonoBehaviour
 
     public void Edit()
     {
-        _editItem.LoadItem(_itemRecord, this);
+        _itemListContainer.LoadEditInspector(_itemRecord, this);
         Highlight(true);
     }
 }

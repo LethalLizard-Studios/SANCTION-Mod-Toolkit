@@ -8,18 +8,15 @@ public class ItemInProgress : MonoBehaviour
 {
     [HideInInspector] public string currentModpack = "Test";
 
-    [SerializeField] private EditItem editItem;
+    [SerializeField] private ItemListContainer itemListContainer;
+
     [SerializeField] private GameObject renamePrompt;
     [SerializeField] private GameObject dashboardPage;
     [SerializeField] private GameObject emptyGuide;
 
-    [SerializeField] private GameObject itemViewPrefab;
-    [SerializeField] private Transform itemViewContainer;
-
     private List<ItemRecord> _currentModsItems = new List<ItemRecord>();
     private ItemRecord _item;
 
-    private List<GameObject> _itemPrefabs = new List<GameObject>();
     private string _texture;
 
     private void OnEnable()
@@ -47,7 +44,7 @@ public class ItemInProgress : MonoBehaviour
         if (_currentModsItems.Count > 0)
         {
             emptyGuide.SetActive(false);
-            CreateItemList();
+            itemListContainer.AddItems(_currentModsItems);
         }
     }
 
@@ -84,6 +81,7 @@ public class ItemInProgress : MonoBehaviour
         if (_currentModsItems.Contains(item))
         {
             _currentModsItems.Remove(item);
+            itemListContainer.RemoveItem(item);
             SaveMod();
         }
     }
@@ -106,6 +104,7 @@ public class ItemInProgress : MonoBehaviour
         _item.modPackName = currentModpack;
 
         _currentModsItems.Add(_item);
+        itemListContainer.AddItem(_item);
         SaveMod();
 
         dashboardPage.SetActive(true);
@@ -114,27 +113,5 @@ public class ItemInProgress : MonoBehaviour
     public void SaveMod()
     {
         ItemSerializer.Save(_currentModsItems, ModPath.HoldingDirectory + currentModpack + "/items.json");
-        RefreshItemList();
-    }
-
-    private void RefreshItemList()
-    {
-        foreach (GameObject item in _itemPrefabs)
-        {
-            Destroy(item);
-        }
-
-        _itemPrefabs.Clear();
-        CreateItemList();
-    }
-
-    private void CreateItemList()
-    {
-        foreach (ItemRecord item in _currentModsItems)
-        {
-            GameObject itemObject = Instantiate(itemViewPrefab, itemViewContainer);
-            itemObject.GetComponent<ItemContentView>().Build(item, this, editItem);
-            _itemPrefabs.Add(itemObject);
-        }
     }
 }

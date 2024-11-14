@@ -65,7 +65,7 @@ public class EditItem : MonoBehaviour
 
         // Close the edit menu and save changes to the view
         CloseMenu();
-        _currentView.SaveEdit();
+        _currentView.SaveEdit(_currentItem);
 
         // Reset the current view
         _currentView = null;
