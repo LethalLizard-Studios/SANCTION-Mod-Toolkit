@@ -24,6 +24,16 @@ public class EditItem : MonoBehaviour
     }
     [SerializeField] private ItemFields itemFields;
 
+    [System.Serializable]
+    public class OptionalItemFields
+    {
+        public TMP_InputField inputLootID;
+        public TMP_InputField inputLootChance;
+        public TMP_InputField inputMerchantID;
+        public TMP_InputField inputMerchantRep;
+    }
+    [SerializeField] private OptionalItemFields optionalItemFields;
+
     private ItemRecord _currentItem;
     private ItemContentView _currentView;
 
@@ -48,6 +58,11 @@ public class EditItem : MonoBehaviour
         itemFields.inputSell.text = itemRecord.sellValue.ToString();
         itemFields.inputPurchase.text = itemRecord.purchaseValue.ToString();
 
+        optionalItemFields.inputLootID.text = itemRecord.lootID.x.ToString();
+        optionalItemFields.inputLootChance.text = itemRecord.lootID.y.ToString();
+        optionalItemFields.inputMerchantID.text = itemRecord.merchantID.x.ToString();
+        optionalItemFields.inputMerchantRep.text = itemRecord.merchantID.y.ToString();
+
         // Show the edit page
         editPage.SetActive(true);
     }
@@ -62,6 +77,11 @@ public class EditItem : MonoBehaviour
             , int.Parse(itemFields.inputHeight.text));
         _currentItem.sellValue = int.Parse(itemFields.inputSell.text);
         _currentItem.purchaseValue = int.Parse(itemFields.inputPurchase.text);
+
+        _currentItem.lootID = new Vector2Int(int.Parse(optionalItemFields.inputLootID.text)
+            , int.Parse(optionalItemFields.inputLootChance.text));
+        _currentItem.merchantID = new Vector2Int(int.Parse(optionalItemFields.inputMerchantID.text)
+            , int.Parse(optionalItemFields.inputMerchantRep.text));
 
         // Close the edit menu and save changes to the view
         CloseMenu();

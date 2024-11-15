@@ -10,6 +10,8 @@ public class Workspace : MonoBehaviour
     [SerializeField] private GameObject workspaceButtonPrefab;
     [SerializeField] private Transform buttonContent;
 
+    [SerializeField] private Sprite missingSprite;
+
     void Start()
     {
         LoadWorkspaces();
@@ -23,9 +25,14 @@ public class Workspace : MonoBehaviour
         {
             DirectoryInfo dir = new DirectoryInfo(workspaceFolders[i]);
             string workspaceName = dir.Name;
+
+            Sprite icon = SpriteBuilder.FromTexturePath("Thumbnail.png", workspaceName, new Vector2Int(1, 1));
+
+            if (icon == null)
+                icon = missingSprite;
+
             Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
-            button.GetChild(0).GetComponent<TextMeshProUGUI>().text = workspaceName;
-            button.GetComponent<WorkspaceButton>().Setup(this, workspaceName);
+            button.GetComponent<WorkspaceButton>().Setup(this, workspaceName, icon);
         }
     }
 
@@ -46,6 +53,6 @@ public class Workspace : MonoBehaviour
         Directory.CreateDirectory(ModPath.HoldingDirectory+"/"+ newModName);
         Transform button = Instantiate(workspaceButtonPrefab, buttonContent).transform;
         button.GetChild(0).GetComponent<TextMeshProUGUI>().text = newModName;
-        button.GetComponent<WorkspaceButton>().Setup(this, newModName);
+        button.GetComponent<WorkspaceButton>().Setup(this, newModName, missingSprite);
     }
 }

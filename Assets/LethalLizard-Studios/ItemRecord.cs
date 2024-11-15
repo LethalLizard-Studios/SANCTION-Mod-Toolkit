@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 
 [System.Serializable]
@@ -38,19 +37,11 @@ public class ItemRecord
 
     public Sprite FetchTexture()
     {
-        Texture2D tempTexture = null;
-
-        if (icon == null && !string.IsNullOrEmpty(texturePath))
+        if (icon == null)
         {
-            byte[] fileData = File.ReadAllBytes(Application.dataPath + "/mods/" + modPackName + "/" + texturePath);
-
-            tempTexture = new Texture2D(256 * dimensions.x, 256 * dimensions.y);
-            tempTexture.LoadImage(fileData);
+            return SpriteBuilder.FromTexturePath(texturePath, modPackName, dimensions);
         }
 
-        if (tempTexture != null)
-            return Sprite.Create(tempTexture, new Rect(0.0f, 0.0f, tempTexture.width, tempTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        else
-            return null;
+        return null;
     }
 }
